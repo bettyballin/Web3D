@@ -47,11 +47,11 @@
   <main id="top">
     <!-- HERO -->
     <section class="hero">
-      <div class="hero-bg" aria-hidden="true">
-        <div class="grid-overlay"></div>
-        <div class="blueprint-shape shape-1"></div>
-        <div class="blueprint-shape shape-2"></div>
-        <div class="blueprint-shape shape-3"></div>
+      <div class="hero-bg" aria-hidden="true" data-parallax-root>
+        <div class="grid-overlay" data-parallax="6"></div>
+        <div class="blueprint-shape shape-1" data-parallax="22"></div>
+        <div class="blueprint-shape shape-2" data-parallax="34"></div>
+        <div class="blueprint-shape shape-3" data-parallax="50"></div>
       </div>
       <div class="container hero-inner">
         <p class="eyebrow" data-i18n="hero.eyebrow">Ingeniero Mecánico · Diseño 3D</p>
@@ -113,11 +113,26 @@
           </ul>
         </div>
         <div class="col-visual">
-          <div class="visual-card">
-            <div class="iso-cube" aria-hidden="true">
-              <div class="face face-top"></div>
-              <div class="face face-left"></div>
-              <div class="face face-right"></div>
+          <div class="visual-card portrait-card" data-tilt>
+            <div class="portrait-stage">
+              <div class="portrait-grid" aria-hidden="true"></div>
+              <div class="portrait-ticks" aria-hidden="true"></div>
+              <div class="portrait-cross" aria-hidden="true">
+                <span class="ax ax-x"></span>
+                <span class="ax ax-y"></span>
+              </div>
+              <div class="portrait-frame">
+                <img src="assets/carlos-original.jpg" alt="Carlos — Ingeniero Mecánico" class="portrait-img" loading="lazy" />
+                <span class="portrait-tone" aria-hidden="true"></span>
+                <span class="portrait-scan" aria-hidden="true"></span>
+              </div>
+              <span class="bracket bracket-tl" aria-hidden="true"></span>
+              <span class="bracket bracket-tr" aria-hidden="true"></span>
+              <span class="bracket bracket-bl" aria-hidden="true"></span>
+              <span class="bracket bracket-br" aria-hidden="true"></span>
+              <span class="callout callout-1" aria-hidden="true">Ø 172 mm</span>
+              <span class="callout callout-2" aria-hidden="true">REV 02</span>
+              <span class="callout callout-3" aria-hidden="true">CARLOS · 001</span>
             </div>
             <div class="visual-meta">
               <span class="meta-tag" data-i18n="about.tag1">Mecánica</span>
@@ -218,7 +233,7 @@
 
         <div class="projects-grid">
           <article class="project-card">
-            <div class="project-visual project-visual-1" aria-hidden="true">
+            <div class="project-visual project-visual-1" aria-hidden="true" data-scroll-parallax>
               <svg viewBox="0 0 200 140" preserveAspectRatio="xMidYMid meet">
                 <defs>
                   <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
@@ -243,7 +258,7 @@
           </article>
 
           <article class="project-card">
-            <div class="project-visual project-visual-2" aria-hidden="true">
+            <div class="project-visual project-visual-2" aria-hidden="true" data-scroll-parallax>
               <svg viewBox="0 0 200 140" preserveAspectRatio="xMidYMid meet">
                 <rect width="200" height="140" fill="#0f172a"/>
                 <g stroke="#38bdf8" stroke-width="1.2" fill="none">
@@ -262,7 +277,7 @@
           </article>
 
           <article class="project-card">
-            <div class="project-visual project-visual-3" aria-hidden="true">
+            <div class="project-visual project-visual-3" aria-hidden="true" data-scroll-parallax>
               <svg viewBox="0 0 200 140" preserveAspectRatio="xMidYMid meet">
                 <rect width="200" height="140" fill="#111827"/>
                 <g stroke="#f97316" stroke-width="1.2" fill="none">
@@ -281,7 +296,7 @@
           </article>
 
           <article class="project-card">
-            <div class="project-visual project-visual-4" aria-hidden="true">
+            <div class="project-visual project-visual-4" aria-hidden="true" data-scroll-parallax>
               <svg viewBox="0 0 200 140" preserveAspectRatio="xMidYMid meet">
                 <rect width="200" height="140" fill="#0f172a"/>
                 <g stroke="#a78bfa" stroke-width="1.2" fill="none">
@@ -299,7 +314,7 @@
           </article>
 
           <article class="project-card">
-            <div class="project-visual project-visual-5" aria-hidden="true">
+            <div class="project-visual project-visual-5" aria-hidden="true" data-scroll-parallax>
               <svg viewBox="0 0 200 140" preserveAspectRatio="xMidYMid meet">
                 <rect width="200" height="140" fill="#111827"/>
                 <g stroke="#22d3ee" stroke-width="1.2" fill="none">
@@ -316,7 +331,7 @@
           </article>
 
           <article class="project-card">
-            <div class="project-visual project-visual-6" aria-hidden="true">
+            <div class="project-visual project-visual-6" aria-hidden="true" data-scroll-parallax>
               <svg viewBox="0 0 200 140" preserveAspectRatio="xMidYMid meet">
                 <rect width="200" height="140" fill="#0f172a"/>
                 <g stroke="#f97316" stroke-width="1.2" fill="none">

@@ -361,10 +361,202 @@ function setupYear() {
   if (el) el.textContent = String(new Date().getFullYear());
 }
 
+/* ----- portrait tick ring (procedural SVG) ----- */
+function buildPortraitRing() {
+  const wrap = document.querySelector(".portrait-ticks");
+  if (!wrap || wrap.querySelector("svg")) return;
+  const NS = "http://www.w3.org/2000/svg";
+  const svg = document.createElementNS(NS, "svg");
+  svg.setAttribute("viewBox", "-160 -160 320 320");
+  svg.setAttribute("aria-hidden", "true");
+
+  // outer faint ring
+  const outer = document.createElementNS(NS, "circle");
+  outer.setAttribute("r", "152");
+  outer.setAttribute("fill", "none");
+  outer.setAttribute("stroke", "rgba(148,163,184,0.18)");
+  outer.setAttribute("stroke-width", "0.6");
+  svg.appendChild(outer);
+
+  // inner accent ring
+  const inner = document.createElementNS(NS, "circle");
+  inner.setAttribute("r", "138");
+  inner.setAttribute("fill", "none");
+  inner.setAttribute("stroke", "rgba(249,115,22,0.28)");
+  inner.setAttribute("stroke-width", "0.8");
+  inner.setAttribute("stroke-dasharray", "2 6");
+  svg.appendChild(inner);
+
+  // tick marks (every 5°, every 6th = major)
+  for (let i = 0; i < 72; i++) {
+    const angle = i * 5;
+    const major = i % 6 === 0;
+    const tick = document.createElementNS(NS, "line");
+    tick.setAttribute("x1", "0");
+    tick.setAttribute("y1", "-150");
+    tick.setAttribute("x2", "0");
+    tick.setAttribute("y2", major ? "-140" : "-146");
+    tick.setAttribute("stroke", major ? "rgba(249,115,22,0.85)" : "rgba(148,163,184,0.4)");
+    tick.setAttribute("stroke-width", major ? "1.2" : "0.6");
+    tick.setAttribute("transform", `rotate(${angle})`);
+    svg.appendChild(tick);
+  }
+
+  // angle labels every 60°
+  for (let a = 0; a < 360; a += 60) {
+    const rad = ((a - 90) * Math.PI) / 180;
+    const r = 128;
+    const x = Math.cos(rad) * r;
+    const y = Math.sin(rad) * r;
+    const t = document.createElementNS(NS, "text");
+    t.setAttribute("x", String(x));
+    t.setAttribute("y", String(y));
+    t.setAttribute("text-anchor", "middle");
+    t.setAttribute("dominant-baseline", "central");
+    t.setAttribute("fill", "rgba(148,163,184,0.55)");
+    t.setAttribute("font-family", "Space Grotesk, sans-serif");
+    t.setAttribute("font-size", "8");
+    t.setAttribute("font-weight", "500");
+    t.setAttribute("letter-spacing", "0.1em");
+    t.textContent = String(a).padStart(3, "0") + "°";
+    svg.appendChild(t);
+  }
+
+  wrap.appendChild(svg);
+}
+
+/* ----- mouse parallax (hero shapes) ----- */
+function setupHeroParallax() {
+  const root = document.querySelector("[data-parallax-root]");
+  if (!root) return;
+
+  const items = Array.from(root.querySelectorAll("[data-parallax]"));
+  if (!items.length) return;
+
+  const hero = root.parentElement; // .hero
+  let raf = 0;
+  let targetX = 0, targetY = 0;
+  let curX = 0, curY = 0;
+
+  function frame() {
+    curX += (targetX - curX) * 0.08;
+    curY += (targetY - curY) * 0.08;
+    items.forEach((el) => {
+      const depth = parseFloat(el.dataset.parallax || "10");
+      el.style.setProperty("--px", `${curX * depth}px`);
+      el.style.setProperty("--py", `${curY * depth}px`);
+    });
+    if (Math.abs(targetX - curX) > 0.01 || Math.abs(targetY - curY) > 0.01) {
+      raf = requestAnimationFrame(frame);
+    } else {
+      raf = 0;
+    }
+  }
+
+  hero.addEventListener("mousemove", (e) => {
+    const rect = hero.getBoundingClientRect();
+    targetX = (e.clientX - rect.left) / rect.width - 0.5;
+    targetY = (e.clientY - rect.top) / rect.height - 0.5;
+    if (!raf) raf = requestAnimationFrame(frame);
+  });
+  hero.addEventListener("mouseleave", () => {
+    targetX = 0; targetY = 0;
+    if (!raf) raf = requestAnimationFrame(frame);
+  });
+}
+
+/* ----- scroll parallax (project visuals) ----- */
+function setupScrollParallax() {
+  const items = document.querySelectorAll("[data-scroll-parallax] svg");
+  if (!items.length) return;
+
+  let visible = new Set();
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) visible.add(e.target);
+        else visible.delete(e.target);
+      });
+      schedule();
+    },
+    { rootMargin: "50px 0px" }
+  );
+  items.forEach((el) => io.observe(el));
+
+  let ticking = false;
+  function schedule() {
+    if (!ticking) {
+      ticking = true;
+      requestAnimationFrame(update);
+    }
+  }
+  function update() {
+    ticking = false;
+    const vh = window.innerHeight;
+    visible.forEach((el) => {
+      const r = el.getBoundingClientRect();
+      const center = r.top + r.height / 2;
+      const ratio = (center - vh / 2) / vh; // ~ -0.5 to 0.5
+      const offset = Math.max(-1, Math.min(1, ratio)) * -16;
+      el.style.setProperty("--sy", `${offset}px`);
+    });
+  }
+
+  window.addEventListener("scroll", schedule, { passive: true });
+  window.addEventListener("resize", schedule);
+  schedule();
+}
+
+/* ----- 3D tilt on portrait card ----- */
+function setupTilt() {
+  const card = document.querySelector("[data-tilt]");
+  if (!card) return;
+  if (window.matchMedia("(hover: none)").matches) return;
+
+  let raf = 0;
+  let targetRX = 0, targetRY = 0;
+  let curRX = 0, curRY = 0;
+
+  function frame() {
+    curRX += (targetRX - curRX) * 0.12;
+    curRY += (targetRY - curRY) * 0.12;
+    card.style.setProperty("--rx", curRX.toFixed(3));
+    card.style.setProperty("--ry", curRY.toFixed(3));
+    if (Math.abs(targetRX - curRX) > 0.02 || Math.abs(targetRY - curRY) > 0.02) {
+      raf = requestAnimationFrame(frame);
+    } else {
+      raf = 0;
+    }
+  }
+
+  card.addEventListener("mousemove", (e) => {
+    const r = card.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width - 0.5;
+    const y = (e.clientY - r.top) / r.height - 0.5;
+    targetRY = x * 10;
+    targetRX = y * -10;
+    if (!raf) raf = requestAnimationFrame(frame);
+  });
+  card.addEventListener("mouseleave", () => {
+    targetRX = 0; targetRY = 0;
+    if (!raf) raf = requestAnimationFrame(frame);
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   setupLangButtons();
   setupMenu();
   setupForm();
   setupYear();
+  buildPortraitRing();
   applyLanguage(detectInitialLang());
+
+  const reduce =
+    window.matchMedia &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!reduce) {
+    setupHeroParallax();
+    setupScrollParallax();
+    setupTilt();
+  }
 });
