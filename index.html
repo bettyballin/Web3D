@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Carlos — Ingeniero Mecánico. Diseño 3D, modelado CAD, simulación e ingeniería de producto." data-i18n-attr="description" />
+  <title>Carlos · Ingeniero Mecánico · Diseño 3D & CAD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230f172a'/%3E%3Cpath d='M20 22 L32 16 L44 22 L44 42 L32 48 L20 42 Z' fill='none' stroke='%23f97316' stroke-width='2.5' stroke-linejoin='round'/%3E%3Cpath d='M20 22 L32 28 L44 22 M32 28 L32 48' fill='none' stroke='%23f97316' stroke-width='2.5' stroke-linejoin='round'/%3E%3C/svg%3E" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#top" class="logo" aria-label="Carlos — Mechanical Engineer">
+        <svg viewBox="0 0 64 64" width="34" height="34" aria-hidden="true">
+          <rect width="64" height="64" rx="12" fill="#0f172a"/>
+          <path d="M20 22 L32 16 L44 22 L44 42 L32 48 L20 42 Z" fill="none" stroke="#f97316" stroke-width="2.5" stroke-linejoin="round"/>
+          <path d="M20 22 L32 28 L44 22 M32 28 L32 48" fill="none" stroke="#f97316" stroke-width="2.5" stroke-linejoin="round"/>
+        </svg>
+        <span class="logo-text">Carlos<span class="logo-accent">.eng</span></span>
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#about" data-i18n="nav.about">Sobre mí</a>
+        <a href="#services" data-i18n="nav.services">Servicios</a>
+        <a href="#projects" data-i18n="nav.projects">Proyectos</a>
+        <a href="#process" data-i18n="nav.process">Proceso</a>
+        <a href="#contact" data-i18n="nav.contact">Contacto</a>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="lang-switch" role="group" aria-label="Language switch">
+          <button class="lang-btn is-active" data-lang="es" aria-pressed="true">ES</button>
+          <span class="lang-divider">/</span>
+          <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="grid-overlay"></div>
+        <div class="blueprint-shape shape-1"></div>
+        <div class="blueprint-shape shape-2"></div>
+        <div class="blueprint-shape shape-3"></div>
+      </div>
+      <div class="container hero-inner">
+        <p class="eyebrow" data-i18n="hero.eyebrow">Ingeniero Mecánico · Diseño 3D</p>
+        <h1 class="hero-title">
+          <span data-i18n="hero.title1">De la idea</span>
+          <span class="accent" data-i18n="hero.title2">al prototipo funcional.</span>
+        </h1>
+        <p class="hero-sub" data-i18n="hero.sub">
+          Soy Carlos, ingeniero mecánico especializado en modelado CAD, diseño de producto y
+          fabricación digital. Convierto conceptos en piezas listas para producir.
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#projects" data-i18n="hero.ctaPrimary">Ver proyectos</a>
+          <a class="btn btn-ghost" href="#contact" data-i18n="hero.ctaSecondary">Solicitar presupuesto</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-num">+8</span>
+            <span class="stat-label" data-i18n="stats.years">Años de experiencia</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">+120</span>
+            <span class="stat-label" data-i18n="stats.projects">Proyectos entregados</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">+30</span>
+            <span class="stat-label" data-i18n="stats.clients">Clientes satisfechos</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <div class="container two-col">
+        <div class="col-text">
+          <p class="section-eyebrow" data-i18n="about.eyebrow">Sobre mí</p>
+          <h2 class="section-title" data-i18n="about.title">Ingeniería con criterio, diseño con propósito.</h2>
+          <p class="section-lead" data-i18n="about.lead">
+            Combino formación en ingeniería mecánica con experiencia en fabricación para
+            entregar diseños viables, optimizados y listos para producción.
+          </p>
+          <p data-i18n="about.body">
+            Trabajo con startups, talleres de fabricación y equipos de I+D en proyectos de
+            modelado 3D, diseño paramétrico, ingeniería inversa y preparación de archivos
+            para CNC, impresión 3D e inyección. Mi prioridad: entregar planos claros,
+            tolerancias correctas y un diseño que resuelva el problema real.
+          </p>
+          <ul class="skill-list">
+            <li>SolidWorks</li>
+            <li>Fusion 360</li>
+            <li>Inventor</li>
+            <li>AutoCAD</li>
+            <li>KeyShot</li>
+            <li>Ansys</li>
+            <li>GD&amp;T</li>
+            <li>DFM / DFA</li>
+          </ul>
+        </div>
+        <div class="col-visual">
+          <div class="visual-card">
+            <div class="iso-cube" aria-hidden="true">
+              <div class="face face-top"></div>
+              <div class="face face-left"></div>
+              <div class="face face-right"></div>
+            </div>
+            <div class="visual-meta">
+              <span class="meta-tag" data-i18n="about.tag1">Mecánica</span>
+              <span class="meta-tag" data-i18n="about.tag2">Producto</span>
+              <span class="meta-tag" data-i18n="about.tag3">Fabricación</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="section section-alt">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-eyebrow" data-i18n="services.eyebrow">Servicios</p>
+          <h2 class="section-title" data-i18n="services.title">Lo que puedo hacer por ti.</h2>
+          <p class="section-lead" data-i18n="services.lead">
+            Soluciones completas de diseño mecánico, desde el primer boceto hasta los
+            archivos finales de fabricación.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7v10l10 5 10-5V7L12 2z"/><path d="M2 7l10 5 10-5"/><path d="M12 22V12"/></svg>
+            </div>
+            <h3 data-i18n="services.s1.title">Modelado 3D &amp; CAD</h3>
+            <p data-i18n="services.s1.body">
+              Modelos paramétricos precisos en SolidWorks o Fusion 360, listos para iterar y
+              producir.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v18H3z"/><path d="M3 9h18M9 3v18"/></svg>
+            </div>
+            <h3 data-i18n="services.s2.title">Planos técnicos</h3>
+            <p data-i18n="services.s2.body">
+              Planos 2D normalizados con cotas, tolerancias y GD&amp;T para taller y
+              proveedores.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18M3 12h18"/></svg>
+            </div>
+            <h3 data-i18n="services.s3.title">Ingeniería inversa</h3>
+            <p data-i18n="services.s3.body">
+              Reconstrucción de piezas existentes a partir de mediciones o escaneos 3D.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l8-16 8 16"/><path d="M7 14h10"/></svg>
+            </div>
+            <h3 data-i18n="services.s4.title">Diseño para fabricación</h3>
+            <p data-i18n="services.s4.body">
+              Optimización de piezas para CNC, impresión 3D, inyección y chapa metálica.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0z"/><path d="M12 7v5l3 2"/></svg>
+            </div>
+            <h3 data-i18n="services.s5.title">Prototipado rápido</h3>
+            <p data-i18n="services.s5.body">
+              Iteraciones físicas con impresión 3D FDM/SLA para validar funcionamiento y
+              ergonomía.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a4 4 0 0 1-4 4H7l-4 4V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/></svg>
+            </div>
+            <h3 data-i18n="services.s6.title">Render &amp; visualización</h3>
+            <p data-i18n="services.s6.body">
+              Imágenes fotorrealistas para presentaciones, marketing y validación con cliente.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-eyebrow" data-i18n="projects.eyebrow">Proyectos</p>
+          <h2 class="section-title" data-i18n="projects.title">Selección de trabajos recientes.</h2>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card">
+            <div class="project-visual project-visual-1" aria-hidden="true">
+              <svg viewBox="0 0 200 140" preserveAspectRatio="xMidYMid meet">
+                <defs>
+                  <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+                    <stop offset="0" stop-color="#1e293b"/><stop offset="1" stop-color="#0f172a"/>
+                  </linearGradient>
+                </defs>
+                <rect width="200" height="140" fill="url(#g1)"/>
+                <g stroke="#f97316" stroke-width="1.2" fill="none" opacity="0.9">
+                  <circle cx="100" cy="70" r="38"/>
+                  <circle cx="100" cy="70" r="22"/>
+                  <circle cx="100" cy="70" r="6"/>
+                  <path d="M100 32 L100 22 M100 108 L100 118 M62 70 L52 70 M138 70 L148 70"/>
+                  <path d="M73 43 L66 36 M127 43 L134 36 M73 97 L66 104 M127 97 L134 104"/>
+                </g>
+              </svg>
+            </div>
+            <div class="project-body">
+              <span class="project-tag" data-i18n="projects.p1.tag">Producto industrial</span>
+              <h3 data-i18n="projects.p1.title">Carcasa de motor compacto</h3>
+              <p data-i18n="projects.p1.body">Diseño y optimización para mecanizado CNC en aluminio 6061.</p>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-visual project-visual-2" aria-hidden="true">
+              <svg viewBox="0 0 200 140" preserveAspectRatio="xMidYMid meet">
+                <rect width="200" height="140" fill="#0f172a"/>
+                <g stroke="#38bdf8" stroke-width="1.2" fill="none">
+                  <path d="M30 110 L100 30 L170 110 Z"/>
+                  <path d="M30 110 L170 110 M70 80 L130 80 M55 95 L145 95"/>
+                  <path d="M100 30 L100 110"/>
+                </g>
+                <g fill="#38bdf8" opacity="0.5"><circle cx="100" cy="30" r="2"/><circle cx="30" cy="110" r="2"/><circle cx="170" cy="110" r="2"/></g>
+              </svg>
+            </div>
+            <div class="project-body">
+              <span class="project-tag" data-i18n="projects.p2.tag">Estructura</span>
+              <h3 data-i18n="projects.p2.title">Bastidor ligero de aluminio</h3>
+              <p data-i18n="projects.p2.body">Análisis estructural FEA y reducción de peso del 22 %.</p>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-visual project-visual-3" aria-hidden="true">
+              <svg viewBox="0 0 200 140" preserveAspectRatio="xMidYMid meet">
+                <rect width="200" height="140" fill="#111827"/>
+                <g stroke="#f97316" stroke-width="1.2" fill="none">
+                  <rect x="40" y="40" width="120" height="60" rx="8"/>
+                  <path d="M40 60 L160 60 M40 80 L160 80"/>
+                  <circle cx="60" cy="50" r="3"/><circle cx="140" cy="50" r="3"/>
+                  <circle cx="60" cy="90" r="3"/><circle cx="140" cy="90" r="3"/>
+                </g>
+              </svg>
+            </div>
+            <div class="project-body">
+              <span class="project-tag" data-i18n="projects.p3.tag">Electrónica</span>
+              <h3 data-i18n="projects.p3.title">Carcasa para placa IoT</h3>
+              <p data-i18n="projects.p3.body">Diseño para impresión 3D con clips a presión y disipación pasiva.</p>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-visual project-visual-4" aria-hidden="true">
+              <svg viewBox="0 0 200 140" preserveAspectRatio="xMidYMid meet">
+                <rect width="200" height="140" fill="#0f172a"/>
+                <g stroke="#a78bfa" stroke-width="1.2" fill="none">
+                  <path d="M40 100 Q100 20 160 100"/>
+                  <path d="M40 100 L160 100"/>
+                  <path d="M70 100 L70 75 M100 100 L100 60 M130 100 L130 75"/>
+                </g>
+              </svg>
+            </div>
+            <div class="project-body">
+              <span class="project-tag" data-i18n="projects.p4.tag">Mecanismo</span>
+              <h3 data-i18n="projects.p4.title">Mecanismo de plegado</h3>
+              <p data-i18n="projects.p4.body">Cinemática y diseño paramétrico para mobiliario portátil.</p>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-visual project-visual-5" aria-hidden="true">
+              <svg viewBox="0 0 200 140" preserveAspectRatio="xMidYMid meet">
+                <rect width="200" height="140" fill="#111827"/>
+                <g stroke="#22d3ee" stroke-width="1.2" fill="none">
+                  <path d="M50 70 L100 40 L150 70 L100 100 Z"/>
+                  <path d="M50 70 L100 100 L100 40 M150 70 L100 100"/>
+                </g>
+              </svg>
+            </div>
+            <div class="project-body">
+              <span class="project-tag" data-i18n="projects.p5.tag">Render</span>
+              <h3 data-i18n="projects.p5.title">Visualización de producto</h3>
+              <p data-i18n="projects.p5.body">Renders fotorrealistas para campaña de lanzamiento.</p>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-visual project-visual-6" aria-hidden="true">
+              <svg viewBox="0 0 200 140" preserveAspectRatio="xMidYMid meet">
+                <rect width="200" height="140" fill="#0f172a"/>
+                <g stroke="#f97316" stroke-width="1.2" fill="none">
+                  <circle cx="100" cy="70" r="42"/>
+                  <path d="M100 28 L100 112 M58 70 L142 70 M70 40 L130 100 M130 40 L70 100"/>
+                </g>
+              </svg>
+            </div>
+            <div class="project-body">
+              <span class="project-tag" data-i18n="projects.p6.tag">Ingeniería inversa</span>
+              <h3 data-i18n="projects.p6.title">Reconstrucción de pieza obsoleta</h3>
+              <p data-i18n="projects.p6.body">A partir de medición manual, listo para refabricar en CNC.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="process" class="section section-alt">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-eyebrow" data-i18n="process.eyebrow">Proceso</p>
+          <h2 class="section-title" data-i18n="process.title">Cómo trabajo.</h2>
+          <p class="section-lead" data-i18n="process.lead">
+            Un flujo claro y transparente, pensado para minimizar iteraciones y entregar a
+            tiempo.
+          </p>
+        </div>
+
+        <ol class="process-list">
+          <li class="process-step">
+            <span class="step-num">01</span>
+            <h3 data-i18n="process.p1.title">Briefing</h3>
+            <p data-i18n="process.p1.body">Entendemos requisitos, restricciones y objetivos del proyecto.</p>
+          </li>
+          <li class="process-step">
+            <span class="step-num">02</span>
+            <h3 data-i18n="process.p2.title">Concepto</h3>
+            <p data-i18n="process.p2.body">Bocetos y propuestas iniciales con materiales y proceso de fabricación.</p>
+          </li>
+          <li class="process-step">
+            <span class="step-num">03</span>
+            <h3 data-i18n="process.p3.title">Diseño 3D</h3>
+            <p data-i18n="process.p3.body">Modelado paramétrico, validación y revisiones en conjunto.</p>
+          </li>
+          <li class="process-step">
+            <span class="step-num">04</span>
+            <h3 data-i18n="process.p4.title">Entrega</h3>
+            <p data-i18n="process.p4.body">Planos, archivos STEP/STL y documentación lista para producir.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <div class="container contact-wrap">
+        <div class="contact-text">
+          <p class="section-eyebrow" data-i18n="contact.eyebrow">Contacto</p>
+          <h2 class="section-title" data-i18n="contact.title">¿Tienes un proyecto en mente?</h2>
+          <p class="section-lead" data-i18n="contact.lead">
+            Cuéntame qué necesitas. Respondo en menos de 24 horas con una propuesta inicial
+            sin compromiso.
+          </p>
+          <ul class="contact-info">
+            <li><span class="info-label" data-i18n="contact.email">Email</span><a href="mailto:hola@carlos-eng.com">hola@carlos-eng.com</a></li>
+            <li><span class="info-label" data-i18n="contact.location">Ubicación</span><span data-i18n="contact.locationVal">Madrid, España · Trabajo remoto</span></li>
+            <li><span class="info-label" data-i18n="contact.availability">Disponibilidad</span><span data-i18n="contact.availabilityVal">Aceptando proyectos para 2026</span></li>
+          </ul>
+        </div>
+
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="field">
+            <label for="name" data-i18n="form.name">Nombre</label>
+            <input id="name" name="name" type="text" required autocomplete="name" />
+          </div>
+          <div class="field">
+            <label for="email" data-i18n="form.email">Email</label>
+            <input id="email" name="email" type="email" required autocomplete="email" />
+          </div>
+          <div class="field">
+            <label for="message" data-i18n="form.message">Mensaje</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block" data-i18n="form.submit">Enviar mensaje</button>
+          <p class="form-note" id="formNote" hidden></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Carlos · <span data-i18n="footer.rights">Todos los derechos reservados.</span></p>
+      <p class="footer-tag" data-i18n="footer.tag">Diseño mecánico · Modelado 3D · Fabricación</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
