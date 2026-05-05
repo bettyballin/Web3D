@@ -465,12 +465,12 @@ function setupHeroParallax() {
   });
 }
 
-/* ----- scroll parallax (project visuals) ----- */
+/* ----- scroll parallax (per-element, data-scroll-y="<speed>") ----- */
 function setupScrollParallax() {
-  const items = document.querySelectorAll("[data-scroll-parallax] svg");
+  const items = document.querySelectorAll("[data-scroll-y]");
   if (!items.length) return;
 
-  let visible = new Set();
+  const visible = new Set();
   const io = new IntersectionObserver(
     (entries) => {
       entries.forEach((e) => {
@@ -479,7 +479,7 @@ function setupScrollParallax() {
       });
       schedule();
     },
-    { rootMargin: "50px 0px" }
+    { rootMargin: "200px 0px" }
   );
   items.forEach((el) => io.observe(el));
 
@@ -494,16 +494,20 @@ function setupScrollParallax() {
     ticking = false;
     const vh = window.innerHeight;
     visible.forEach((el) => {
+      const speed = parseFloat(el.dataset.scrollY || "40");
       const r = el.getBoundingClientRect();
       const center = r.top + r.height / 2;
-      const ratio = (center - vh / 2) / vh; // ~ -0.5 to 0.5
-      const offset = Math.max(-1, Math.min(1, ratio)) * -16;
-      el.style.setProperty("--sy", `${offset}px`);
+      // -1 (above viewport) → 0 (centered) → 1 (below viewport)
+      const ratio = (center - vh / 2) / (vh / 2 + r.height / 2);
+      const offset = Math.max(-1.2, Math.min(1.2, ratio)) * -speed;
+      el.style.setProperty("--sy", `${offset.toFixed(2)}px`);
     });
   }
 
   window.addEventListener("scroll", schedule, { passive: true });
   window.addEventListener("resize", schedule);
+  // initialize visibility set on first paint
+  items.forEach((el) => visible.add(el));
   schedule();
 }
 
