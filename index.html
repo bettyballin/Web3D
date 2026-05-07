@@ -7,20 +7,20 @@
   <title>Carlos · Ingeniero Mecánico · Diseño 3D & CAD</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230f172a'/%3E%3Cpath d='M20 22 L32 16 L44 22 L44 42 L32 48 L20 42 Z' fill='none' stroke='%23f97316' stroke-width='2.5' stroke-linejoin='round'/%3E%3Cpath d='M20 22 L32 28 L44 22 M32 28 L32 48' fill='none' stroke='%23f97316' stroke-width='2.5' stroke-linejoin='round'/%3E%3C/svg%3E" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='6' fill='%232a2a2c'/%3E%3Cpath d='M20 22 L32 16 L44 22 L44 42 L32 48 L20 42 Z' fill='none' stroke='%23a23759' stroke-width='2.5' stroke-linejoin='round'/%3E%3Cpath d='M20 22 L32 28 L44 22 M32 28 L32 48' fill='none' stroke='%23a23759' stroke-width='2.5' stroke-linejoin='round'/%3E%3C/svg%3E" />
 </head>
 <body>
   <header class="site-header">
     <div class="container nav">
       <a href="#top" class="logo" aria-label="Carlos — Mechanical Engineer">
         <svg viewBox="0 0 64 64" width="34" height="34" aria-hidden="true">
-          <rect width="64" height="64" rx="12" fill="#0f172a"/>
-          <path d="M20 22 L32 16 L44 22 L44 42 L32 48 L20 42 Z" fill="none" stroke="#f97316" stroke-width="2.5" stroke-linejoin="round"/>
-          <path d="M20 22 L32 28 L44 22 M32 28 L32 48" fill="none" stroke="#f97316" stroke-width="2.5" stroke-linejoin="round"/>
+          <rect width="64" height="64" rx="6" fill="transparent" stroke="#a23759" stroke-width="2"/>
+          <path d="M20 22 L32 16 L44 22 L44 42 L32 48 L20 42 Z" fill="none" stroke="#a23759" stroke-width="2.4" stroke-linejoin="round"/>
+          <path d="M20 22 L32 28 L44 22 M32 28 L32 48" fill="none" stroke="#a23759" stroke-width="2.4" stroke-linejoin="round"/>
         </svg>
-        <span class="logo-text">Carlos<span class="logo-accent">.eng</span></span>
+        <span class="logo-text">carlos<span class="logo-accent">.eng</span></span>
       </a>
 
       <nav class="nav-links" id="navLinks">
@@ -86,7 +86,7 @@
     </section>
 
     <!-- ABOUT -->
-    <section id="about" class="section">
+    <section id="about" class="section section-light">
       <div class="container two-col">
         <div class="col-text">
           <p class="section-eyebrow" data-i18n="about.eyebrow">Sobre mí</p>
@@ -145,7 +145,7 @@
     </section>
 
     <!-- SERVICES -->
-    <section id="services" class="section section-alt">
+    <section id="services" class="section section-dark">
       <div class="container">
         <div class="section-head">
           <p class="section-eyebrow" data-i18n="services.eyebrow">Servicios</p>
@@ -224,7 +224,7 @@
     </section>
 
     <!-- PROJECTS -->
-    <section id="projects" class="section">
+    <section id="projects" class="section section-light">
       <div class="container">
         <div class="section-head">
           <p class="section-eyebrow" data-i18n="projects.eyebrow">Proyectos</p>
@@ -351,7 +351,7 @@
     </section>
 
     <!-- PROCESS -->
-    <section id="process" class="section section-alt">
+    <section id="process" class="section section-dark">
       <div class="container">
         <div class="section-head">
           <p class="section-eyebrow" data-i18n="process.eyebrow">Proceso</p>
@@ -388,7 +388,7 @@
     </section>
 
     <!-- CONTACT -->
-    <section id="contact" class="section">
+    <section id="contact" class="section section-light">
       <div class="container contact-wrap">
         <div class="contact-text">
           <p class="section-eyebrow" data-i18n="contact.eyebrow">Contacto</p>
@@ -405,19 +405,35 @@
         </div>
 
         <form class="contact-form" id="contactForm" novalidate>
-          <div class="field">
-            <label for="name" data-i18n="form.name">Nombre</label>
-            <input id="name" name="name" type="text" required autocomplete="name" />
+          <div class="field-row">
+            <div class="field">
+              <label for="name" data-i18n="form.name">Nombre</label>
+              <input id="name" name="name" type="text" required autocomplete="given-name" />
+            </div>
+            <div class="field">
+              <label for="surname" data-i18n="form.surname">Apellidos</label>
+              <input id="surname" name="surname" type="text" autocomplete="family-name" />
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="email" data-i18n="form.email">Email</label>
+              <input id="email" name="email" type="email" required autocomplete="email" />
+            </div>
+            <div class="field">
+              <label for="phone" data-i18n="form.phone">Teléfono</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" />
+            </div>
           </div>
           <div class="field">
-            <label for="email" data-i18n="form.email">Email</label>
-            <input id="email" name="email" type="email" required autocomplete="email" />
+            <label for="subject" data-i18n="form.subject">Asunto</label>
+            <input id="subject" name="subject" type="text" />
           </div>
           <div class="field">
-            <label for="message" data-i18n="form.message">Mensaje</label>
+            <label for="message" data-i18n="form.message">¿Cómo te podemos ayudar?</label>
             <textarea id="message" name="message" rows="5" required></textarea>
           </div>
-          <button type="submit" class="btn btn-primary btn-block" data-i18n="form.submit">Enviar mensaje</button>
+          <button type="submit" class="btn btn-primary btn-block" data-i18n="form.submit">Enviar</button>
           <p class="form-note" id="formNote" hidden></p>
         </form>
       </div>

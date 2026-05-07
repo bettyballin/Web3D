@@ -113,10 +113,13 @@ const translations = {
     "contact.availabilityVal": "Aceptando proyectos para 2026",
 
     "form.name": "Nombre",
+    "form.surname": "Apellidos",
     "form.email": "Email",
-    "form.message": "Mensaje",
-    "form.submit": "Enviar mensaje",
-    "form.validation": "Por favor, rellena todos los campos.",
+    "form.phone": "Teléfono",
+    "form.subject": "Asunto",
+    "form.message": "¿Cómo te podemos ayudar?",
+    "form.submit": "Enviar",
+    "form.validation": "Por favor, rellena los campos obligatorios.",
     "form.success": "¡Gracias! Abriendo tu cliente de correo…",
 
     "footer.rights": "Todos los derechos reservados.",
@@ -234,10 +237,13 @@ const translations = {
     "contact.availabilityVal": "Booking projects for 2026",
 
     "form.name": "Name",
+    "form.surname": "Surname",
     "form.email": "Email",
-    "form.message": "Message",
-    "form.submit": "Send message",
-    "form.validation": "Please fill in all fields.",
+    "form.phone": "Phone",
+    "form.subject": "Subject",
+    "form.message": "How can I help?",
+    "form.submit": "Send",
+    "form.validation": "Please fill in the required fields.",
     "form.success": "Thanks! Opening your email client…",
 
     "footer.rights": "All rights reserved.",
@@ -320,7 +326,10 @@ function setupForm() {
 
     const data = new FormData(form);
     const name = (data.get("name") || "").toString().trim();
+    const surname = (data.get("surname") || "").toString().trim();
     const email = (data.get("email") || "").toString().trim();
+    const phone = (data.get("phone") || "").toString().trim();
+    const subjectField = (data.get("subject") || "").toString().trim();
     const message = (data.get("message") || "").toString().trim();
 
     note.hidden = false;
@@ -332,14 +341,20 @@ function setupForm() {
       return;
     }
 
+    const fullName = [name, surname].filter(Boolean).join(" ");
     const subject = encodeURIComponent(
-      lang === "en"
-        ? `New project enquiry from ${name}`
-        : `Nuevo proyecto de ${name}`
+      subjectField ||
+        (lang === "en"
+          ? `New project enquiry from ${fullName}`
+          : `Nuevo proyecto de ${fullName}`)
     );
-    const body = encodeURIComponent(
-      `${name} <${email}>\n\n${message}`
-    );
+    const bodyLines = [
+      `${fullName} <${email}>`,
+      phone ? `${dict["form.phone"]}: ${phone}` : "",
+      "",
+      message,
+    ].filter((l) => l !== "");
+    const body = encodeURIComponent(bodyLines.join("\n"));
     window.location.href = `mailto:hola@carlos-eng.com?subject=${subject}&body=${body}`;
 
     note.textContent = dict["form.success"];
